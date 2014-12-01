@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 using System.Windows;
 
 namespace ShinyLine2WPF
@@ -8,21 +10,43 @@ namespace ShinyLine2WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<ShineLineVm> Lines { get; set; } 
+        public ObservableCollection<ShineLineVm> Lines { get; set; }
+
+        private RandomNumberGenerator _randomGenerator;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            _randomGenerator = RandomNumberGenerator.Create();
             Lines = new ObservableCollection<ShineLineVm>();
             DataContext = this;
 
-            Lines.Add(new ShineLineVm
+            for (var i = 0; i < 50; i++)
             {
-                X1 = 130,
-                Y1 = 120,
-                X2 = 400,
-                Y2 = 200
-            });
+                Lines.Add(CreateRandomLine());
+            }
+        }
+
+        private ShineLineVm CreateRandomLine()
+        {
+
+
+            var line = new ShineLineVm
+            {
+                X1 = (int)(NextDouble() * this.Width * 0.8 + this.Width * 0.1),
+                Y1 = (int)(NextDouble() * this.Height * 0.8 + this.Height * 0.1),
+                X2 = (int)(NextDouble() * this.Width * 0.8 + this.Width * 0.1),
+                Y2 = (int)(NextDouble() * this.Height * 0.8 + this.Height * 0.1),
+            };
+            return line;
+        }
+
+        private double NextDouble()
+        {
+            var buff = new byte[4];
+            _randomGenerator.GetBytes(buff);
+            return (double)BitConverter.ToUInt32(buff, 0) / UInt32.MaxValue;
         }
     }
 }
