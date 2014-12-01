@@ -4,6 +4,18 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid Background="Black">
         <Canvas x:Name="Screen">
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimation Storyboard.TargetName="Screen" Storyboard.TargetProperty="Opacity" From="0.3" To="0.8" Duration="0:0:0.3" BeginTime="0:0:0"/>
+                            <DoubleAnimation Storyboard.TargetName="Screen" Storyboard.TargetProperty="Opacity" From="0.8" To="1"   Duration="0:0:0.2" BeginTime="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetName="Screen" Storyboard.TargetProperty="Opacity" From="1" To="0.8"   Duration="0:0:0.3" BeginTime="0:0:0.9"/>
+                            <DoubleAnimation Storyboard.TargetName="Screen" Storyboard.TargetProperty="Opacity" From="0.8" To="0.3" Duration="0:0:0.6" BeginTime="0:0:1.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Canvas.Triggers>
             <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Blue" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
                 <Line.Effect>
                     <BlurEffect Radius="40" KernelType="Gaussian"/>
