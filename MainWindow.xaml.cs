@@ -22,7 +22,7 @@ namespace ShinyLine2WPF
             Lines = new ObservableCollection<ShineLineVm>();
             DataContext = this;
 
-            for (var i = 0; i < 50; i++)
+            for (var i = 0; i < 800; i++)
             {
                 Lines.Add(CreateRandomLine());
             }

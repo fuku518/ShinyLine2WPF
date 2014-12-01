@@ -26,6 +26,9 @@
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas x:Name="Screen">
+                        <Canvas.CacheMode>
+                            <BitmapCache EnableClearType="False" RenderAtScale="1"/>
+                        </Canvas.CacheMode>
                         <Canvas.Triggers>
                             <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                                 <BeginStoryboard>
