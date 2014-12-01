@@ -4,8 +4,16 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid Background="Black">
         <Canvas x:Name="Screen">
-            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Blue" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
-            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Aqua" StrokeThickness="10" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Blue" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                <Line.Effect>
+                    <BlurEffect Radius="40" KernelType="Gaussian"/>
+                </Line.Effect>
+            </Line>
+            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Aqua" StrokeThickness="10" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                <Line.Effect>
+                    <BlurEffect Radius="20" KernelType="Gaussian"/>
+                </Line.Effect>
+            </Line>
             <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="White" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
         </Canvas>
     </Grid>
