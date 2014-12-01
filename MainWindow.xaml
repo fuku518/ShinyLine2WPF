@@ -2,7 +2,11 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+    <Grid Background="Black">
+        <Canvas x:Name="Screen">
+            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Blue" StrokeThickness="16" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="Aqua" StrokeThickness="10" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+            <Line X1="130" Y1="120" X2="400" Y2 ="230" Stroke="White" StrokeThickness="1" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+        </Canvas>
     </Grid>
 </Window>
