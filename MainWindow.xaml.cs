@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ShinyLine2WPF
 {
@@ -20,9 +8,21 @@ namespace ShinyLine2WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<ShineLineVm> Lines { get; set; } 
+
         public MainWindow()
         {
             InitializeComponent();
+            Lines = new ObservableCollection<ShineLineVm>();
+            DataContext = this;
+
+            Lines.Add(new ShineLineVm
+            {
+                X1 = 130,
+                Y1 = 120,
+                X2 = 400,
+                Y2 = 200
+            });
         }
     }
 }
